@@ -21,7 +21,7 @@
       },
       "moduleResolution": "node",
       "resolveJsonModule": true,
-      "types": ["node"],
+      "types": ["node", "vuetify"],
       "esModuleInterop": true,
       "preserveSymlinks": true
     },
