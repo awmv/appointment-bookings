@@ -21,8 +21,8 @@ const routes = [
     component: Login,
   },
   {
-    path: "/:pathMatch(.*)*",
-    redirect: { name: "login" },
+    path: "/:catchAll(.*)",
+    redirect: { name: "appointments" },
   },
 ];
 
@@ -33,10 +33,13 @@ export const router = createRouter({
 
 router.beforeEach((to, _, next) => {
   const isAuthenticated = Meteor.userId();
+
   if (
     to.matched.some((record) => record.meta.requiresAuth) &&
     !isAuthenticated
   ) {
+    next({ name: "login" });
+  } else if (to.name === "appointments" && !isAuthenticated) {
     next({ name: "login" });
   } else {
     next();
