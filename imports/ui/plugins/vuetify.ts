@@ -1,10 +1,15 @@
 import "vuetify/styles";
-import { createVuetify } from "vuetify";
 import { aliases, mdi } from "vuetify/iconsets/mdi";
+import { VDateInput } from "vuetify/labs/VDateInput";
+import { createVuetify } from "vuetify";
 
 export default createVuetify({
+  components: {
+    VDateInput,
+  },
+
   theme: {
-    defaultTheme: "dark",
+    defaultTheme: "light",
   },
   icons: {
     defaultSet: "mdi",
