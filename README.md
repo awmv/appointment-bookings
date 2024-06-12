@@ -1,3 +1,3 @@
 # Take-home assignment for appointment booking
 
-[Live version](robert.meteorapp.com)
+[Live version](https://robert.meteorapp.com)
