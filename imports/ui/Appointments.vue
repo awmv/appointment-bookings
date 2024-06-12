@@ -7,11 +7,7 @@
           Take-home assignment
         </v-chip></v-toolbar-title
       >
-      <div v-if="currentUser">{{ currentUser.username }}</div>
       <v-btn text color="primary" @click="handleLogout">Logout</v-btn>
-      <template v-slot:append>
-        <v-btn icon="mdi-dots-vertical" @click="isModalOpen = true"></v-btn>
-      </template>
     </v-app-bar>
 
     <v-dialog v-model="isErrorModalVisible" persistent max-width="600px">
@@ -111,9 +107,6 @@
               class="mb-4"
               clearable
             ></v-text-field>
-            <!-- 
-            v-model:sort-by="sortBy"
-            v-model:sort-desc="sortDesc" -->
             <v-data-table
               :headers="headers"
               :items="filteredAppointments"
@@ -223,6 +216,7 @@ export default {
   },
   computed: {
     filteredAppointments() {
+      // TODO: Might want to debounce this
       const searchQuery = this.search || "";
       return this.appointments.filter((appointment) => {
         const fullName =
